@@ -1,6 +1,7 @@
 package com.bi;
 
 import com.bi.entity.Person;
+import org.hibernate.IdentifierLoadAccess;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -69,6 +70,16 @@ public class PERTest {
         transaction.commit();
         session.close();
     }
+        @Test
+    public void delEntity(){
+
+            Session session = sessionFactory.openSession();
+            Person person =
+                    session.get(Person.class, 4);
+            System.out.println(person.toString());
+            session.close();
+
+        }
 
 
 
